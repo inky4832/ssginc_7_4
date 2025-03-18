@@ -1,134 +1,136 @@
 
-Spring AI °­ÁÂÁ¤¸®
+ # ê¸°ë³¸ì€ gpt-4o ì„
+spring.ai.openai.chat.options.model=gpt-4o-mini
+Spring AI ê°•ì¢Œì •ë¦¬
 
-1. »ı¼ºÇü AI ( Generitive AI )
+1. ìƒì„±í˜• AI ( Generitive AI )
 
-  1) °³³ä
-   - ÅØ½ºÆ®, ÀÌ¹ÌÁö, ¿µ»ó, À½¾Çµî ´Ù¾çÇÑ ÇüÅÂÀÇ µ¥ÀÌÅÍ¸¦ »ı¼ºÇÒ ¼ö ÀÖ´Â ÀÎ°øÁö´ÉÀÓ.
+  1) ê°œë…
+   - í…ìŠ¤íŠ¸, ì´ë¯¸ì§€, ì˜ìƒ, ìŒì•…ë“± ë‹¤ì–‘í•œ í˜•íƒœì˜ ë°ì´í„°ë¥¼ ìƒì„±í•  ìˆ˜ ìˆëŠ” ì¸ê³µì§€ëŠ¥ì„.
 
 
-  2) ÁÖ¿ä ±â¼ú
+  2) ì£¼ìš” ê¸°ìˆ 
 
-   °¡. ´ë±Ô¸ğ ¾ğ¾î ¸ğµ¨ ( Large Language Model: LLM )
-     - ¿¹> OpenAI ÀÇ ChatGPT ( ¼ö¾÷¿¡¼­ »ç¿ë, ÃÖ¼ÒÇÑ $5 ºñ¿ë )
-          Google ÀÇ Gemini ( Á¦¹Ì³ªÀÌ )
-	  META ÀÇ Llama ( ·ÎÄÃ¿¡¼­ ½ÇÇàÇÏ¸é ¹«·á )
+   ê°€. ëŒ€ê·œëª¨ ì–¸ì–´ ëª¨ë¸ ( Large Language Model: LLM )
+     - ì˜ˆ> OpenAI ì˜ ChatGPT ( ìˆ˜ì—…ì—ì„œ ì‚¬ìš©, ìµœì†Œí•œ $5 ë¹„ìš© )
+          Google ì˜ Gemini ( ì œë¯¸ë‚˜ì´ )
+	  META ì˜ Llama ( ë¡œì»¬ì—ì„œ ì‹¤í–‰í•˜ë©´ ë¬´ë£Œ )
 
-   ³ª. ÄÄÇ»ÅÍ ºñÀü ±â¼ú
-     - GAN ( »ı¼ºÀû Àû´ë ½Å°æ¸Á) 
-       ¿¹> µöÆäÀÌÅ©
+   ë‚˜. ì»´í“¨í„° ë¹„ì „ ê¸°ìˆ 
+     - GAN ( ìƒì„±ì  ì ëŒ€ ì‹ ê²½ë§) 
+       ì˜ˆ> ë”¥í˜ì´í¬
 
-   ´Ù. ¸ÖÆ¼ ¸ğ´Ş( multi modal)
-     - ÀÌ¹ÌÁö ¹× »ç¿îµå »ı¼º
+   ë‹¤. ë©€í‹° ëª¨ë‹¬( multi modal)
+     - ì´ë¯¸ì§€ ë° ì‚¬ìš´ë“œ ìƒì„±
 
- 3) AI ¾ÆÅ°ÅØÃÄ
+ 3) AI ì•„í‚¤í…ì³
  
-  * ÆÄÀÌ¼± ·¯´×ÆĞ½º
+  * íŒŒì´ì„  ëŸ¬ë‹íŒ¨ìŠ¤
 
-    ÆÄÀÌ½ã--> numpy --> pandas --> matplotlib(½Ã°¢È­) --> ML --> DL
-     ¼öÇĞ °³³ä
+    íŒŒì´ì¬--> numpy --> pandas --> matplotlib(ì‹œê°í™”) --> ML --> DL
+     ìˆ˜í•™ ê°œë…
 
     AI
-      ML ( ¸Ó½Å·¯´× )
-         DL ( µö·¯´× )
-           »ı¼ºÇü AI
-	       LLM  <== ºô·Á¼­ »ç¿ëµÇ´Â ¹æ¹ıÀ¸·Î ¼­ºñ½º¿¡ Àû¿ë°¡´É.
+      ML ( ë¨¸ì‹ ëŸ¬ë‹ )
+         DL ( ë”¥ëŸ¬ë‹ )
+           ìƒì„±í˜• AI
+	       LLM  <== ë¹Œë ¤ì„œ ì‚¬ìš©ë˜ëŠ” ë°©ë²•ìœ¼ë¡œ ì„œë¹„ìŠ¤ì— ì ìš©ê°€ëŠ¥.
 
 
-2. LLM Àû¿ë ±â¼ú ¿ª»ç
+2. LLM ì ìš© ê¸°ìˆ  ì—­ì‚¬
 
- 1) ÃÊÃ¢±â ¸ğµ¨
+ 1) ì´ˆì°½ê¸° ëª¨ë¸
   
-    - one-hot ÀÎÄÚµù
-    - ´Ü¾î¿¡ ¼ıÀÚ¸¦ ÁöÁ¤ ( 0°ú 1·Î¸¸ Ç¥Çö )
+    - one-hot ì¸ì½”ë”©
+    - ë‹¨ì–´ì— ìˆ«ìë¥¼ ì§€ì • ( 0ê³¼ 1ë¡œë§Œ í‘œí˜„ )
 
-    ¿¹> °í¾çÀÌ - 1 0 0 0 
-       °­¾ÆÁö - 0 1 0 0 
-       »õ    - 0 0 1 0
-       ¸Û¸ÛÀÌ - 0 0 0 1
+    ì˜ˆ> ê³ ì–‘ì´ - 1 0 0 0 
+       ê°•ì•„ì§€ - 0 1 0 0 
+       ìƒˆ    - 0 0 1 0
+       ë©ë©ì´ - 0 0 0 1
 
-     °¡Àå Å« ´ÜÁ¡Àº ´Ü¾î°£¿¡ °ü·Ã¼ºÀ» ¼³Á¤ÇÏ±â°¡ ¸Å¿ì ¾î·Á¿ò.
+     ê°€ì¥ í° ë‹¨ì ì€ ë‹¨ì–´ê°„ì— ê´€ë ¨ì„±ì„ ì„¤ì •í•˜ê¸°ê°€ ë§¤ìš° ì–´ë ¤ì›€.
 
- 2) °³¼± ¸ğµ¨
+ 2) ê°œì„  ëª¨ë¸
   
-   -  wordtovect ¸ğµ¨
-   -  ¹è¿­(º¤ÅÍ)·Î Ç¥Çö <-- ÀÓº£µù(embedding) ÀÌ¶ó°í ºÎ¸§.
-   ¿¹> °í¾çÀÌ - [0.4  -0.3  0.7  0.1]  
-       °­¾ÆÁö- [0.8  -0.9  0.1  0.9]  
-       ¸Û¸ÛÀÌ - [0.85  -0.8  0.05  0.85] 
+   -  wordtovect ëª¨ë¸
+   -  ë°°ì—´(ë²¡í„°)ë¡œ í‘œí˜„ <-- ì„ë² ë”©(embedding) ì´ë¼ê³  ë¶€ë¦„.
+   ì˜ˆ> ê³ ì–‘ì´ - [0.4  -0.3  0.7  0.1]  
+       ê°•ì•„ì§€- [0.8  -0.9  0.1  0.9]  
+       ë©ë©ì´ - [0.85  -0.8  0.05  0.85] 
 
-     °¡Àå Å« ÀåÁ¡Àº ¸ğµç Â÷¿ø¿¡ °ªÀ» ¼³Á¤ÇØ¼­ ´Ü¾î°£¿¡ °ü·Ã¼­(À¯»ç¼º)À» ¼³Á¤ÇÒ ¼ö ÀÖÀ½.
+     ê°€ì¥ í° ì¥ì ì€ ëª¨ë“  ì°¨ì›ì— ê°’ì„ ì„¤ì •í•´ì„œ ë‹¨ì–´ê°„ì— ê´€ë ¨ì„œ(ìœ ì‚¬ì„±)ì„ ì„¤ì •í•  ìˆ˜ ìˆìŒ.
   
 
-3. ÅäÅ« ( token )
+3. í† í° ( token )
 
-  1)°³³ä
+  1)ê°œë…
 
-    Á¦°øµÈ ¹®ÀåÀ» ºĞ¸®ÇÏ´Â ÀÛ¾÷À» ÀÇ¹Ì.
+    ì œê³µëœ ë¬¸ì¥ì„ ë¶„ë¦¬í•˜ëŠ” ì‘ì—…ì„ ì˜ë¯¸.
 
-   ¿¹> ¾È³çÇÏ¼¼¿ä
+   ì˜ˆ> ì•ˆë…•í•˜ì„¸ìš”
 
-     ¾È,³ç,ÇÏ,¼¼,¿ä (1´Ü°è)
-      |          <== ¸¹ÀÌ »ç¿ëÇÏ´Â ´Ü¾î ¹­À½
-     ¾È³ç ÇÏ¼¼¿ä    <== ÃÖÁ¾ÀûÀ¸·Î 
+     ì•ˆ,ë…•,í•˜,ì„¸,ìš” (1ë‹¨ê³„)
+      |          <== ë§ì´ ì‚¬ìš©í•˜ëŠ” ë‹¨ì–´ ë¬¶ìŒ
+     ì•ˆë…• í•˜ì„¸ìš”    <== ìµœì¢…ì ìœ¼ë¡œ 
 
-  2) ChatGPT´Â BPE( byte pair encoding) ÅäÅ«³ªÀÌÀú ÀÌ¿ë.
+  2) ChatGPTëŠ” BPE( byte pair encoding) í† í°ë‚˜ì´ì € ì´ìš©.
 
   https://platform.openai.com/tokenizer
 
-   ÅäÅ«¿¡ µû¶ó¼­ °ú±İÀÌ µÊ.
+   í† í°ì— ë”°ë¼ì„œ ê³¼ê¸ˆì´ ë¨.
 
 
-4. ¿äÃ»¿¡ ´ëÇÑ ÀÀ´äÀ» È¿À²ÀûÀ¸·Î ¹Ş±â À§ÇÑ ¹æ¹ı 2°¡Áö
+4. ìš”ì²­ì— ëŒ€í•œ ì‘ë‹µì„ íš¨ìœ¨ì ìœ¼ë¡œ ë°›ê¸° ìœ„í•œ ë°©ë²• 2ê°€ì§€
 
   1) converter
  
-     BeanOutputConverter:  DTO Çü½ÄÀ¸·Î ÀÀ´ä
-     ListOutputConverter:  , (½°Ç¥) ±¸ºĞÀÚ·Î ÀÀ´ä
-     MapOutputConverter:   key,value Çü½ÄÀ¸·Î ÀÀ´ä
+     BeanOutputConverter:  DTO í˜•ì‹ìœ¼ë¡œ ì‘ë‹µ
+     ListOutputConverter:  , (ì‰¼í‘œ) êµ¬ë¶„ìë¡œ ì‘ë‹µ
+     MapOutputConverter:   key,value í˜•ì‹ìœ¼ë¡œ ì‘ë‹µ
  
 
   2) entity
 
 
 
-5. RAG ( Retrieval Augmented Generation: °Ë»ö Áõ°­ »ı¼º )
+5. RAG ( Retrieval Augmented Generation: ê²€ìƒ‰ ì¦ê°• ìƒì„± )
 
-  1) °³³ä
-   - LLM ¸ğµ¨Àº Á¦°øµÈ µ¥ÀÌÅÍ·Î ÇĞ½ÀÀÌ µÇ¾î ÀÀ´äÀ» ÇØÁÜ.
-     Á¦°øµÈ µ¥ÀÌÅÍ°¡ ¿À·¡µÈ µ¥ÀÌÅÍÀÌ±â ¶§¹®¿¡ ÃÖ½Å µ¥ÀÌÅÍ¿¡ ´ëÇÑ ¿äÃ»À»
-     ÀÀ´ä¿¡ Á¦ÇÑÀÌ ÀÖÀ½.
+  1) ê°œë…
+   - LLM ëª¨ë¸ì€ ì œê³µëœ ë°ì´í„°ë¡œ í•™ìŠµì´ ë˜ì–´ ì‘ë‹µì„ í•´ì¤Œ.
+     ì œê³µëœ ë°ì´í„°ê°€ ì˜¤ë˜ëœ ë°ì´í„°ì´ê¸° ë•Œë¬¸ì— ìµœì‹  ë°ì´í„°ì— ëŒ€í•œ ìš”ì²­ì„
+     ì‘ë‹µì— ì œí•œì´ ìˆìŒ.
 
-  2) ¿ëµµ
-    - ÃÖ½Å µ¥ÀÌÅÍ Á¦°ø
-    - Æ¯Á¤ È¸»ç(µµ¸ŞÀÎ)¿¡ ±¹ÇÑµÈ µ¥ÀÌÅÍ Á¦°ø
+  2) ìš©ë„
+    - ìµœì‹  ë°ì´í„° ì œê³µ
+    - íŠ¹ì • íšŒì‚¬(ë„ë©”ì¸)ì— êµ­í•œëœ ë°ì´í„° ì œê³µ
 
-  3) ¿ë¾î
-    - vector store ( ÀúÀå¼Ò )
-      ¿¹> ÆÄÀÏ, ¶Ç´Â DB(Vector DB)
+  3) ìš©ì–´
+    - vector store ( ì €ì¥ì†Œ )
+      ì˜ˆ> íŒŒì¼, ë˜ëŠ” DB(Vector DB)
 
     ///////////////////////////
       * Vector DB
-        -ÀÓº£µù µ¥ÀÌÅÍ(º¤ÅÍ)°¡ ÀúÀåµÊ.
-	-À¯»çµµ(À¯»ç¼º) °Ë»öÀÌ °¡´É
-	- Á¾·ù: PGVector(PostgreSQL ÀÇ È®Àå±â´É ), Chroma, Pinecone,....
+        -ì„ë² ë”© ë°ì´í„°(ë²¡í„°)ê°€ ì €ì¥ë¨.
+	-ìœ ì‚¬ë„(ìœ ì‚¬ì„±) ê²€ìƒ‰ì´ ê°€ëŠ¥
+	- ì¢…ë¥˜: PGVector(PostgreSQL ì˜ í™•ì¥ê¸°ëŠ¥ ), Chroma, Pinecone,....
 
     //////////////////////////
     
-     °¡. Docker Desktop ¼³Ä¡
+     ê°€. Docker Desktop ì„¤ì¹˜
         https://www.docker.com/products/docker-desktop/
 
 	download for window AMD64
 
-     ³ª. pgvector Á¢¼ÓÇÏ±â À§ÇÑ µµ±¸
+     ë‚˜. pgvector ì ‘ì†í•˜ê¸° ìœ„í•œ ë„êµ¬
         DBeaver
 	https://dbeaver.io/
 
-     ´Ù. PGVector ¼³Ä¡
-       - docker ÀÌ¿ë
+     ë‹¤. PGVector ì„¤ì¹˜
+       - docker ì´ìš©
        docker run -it --rm --name postgres -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres pgvector/pgvector:pg16
 
-     ¶ó. ÀÇÁ¸¼º ¼³Á¤
+     ë¼. ì˜ì¡´ì„± ì„¤ì •
 
              <!-- Vector Store : PGVector-->
 	    <dependency>
@@ -140,9 +142,9 @@ Spring AI °­ÁÂÁ¤¸®
 	      <artifactId>spring-ai-pgvector-store-spring-boot-starter</artifactId>
 	    </dependency>
 
-     ¸¶. PGVector¿¡ Å×ÀÌºí ÀÛ¼º
+     ë§ˆ. PGVectorì— í…Œì´ë¸” ì‘ì„±
 
-       src/main/resousce/schema.sql ÀÛ¼º
+       src/main/resousce/schema.sql ì‘ì„±
 
        CREATE EXTENSION IF NOT EXISTS vector;
 	CREATE EXTENSION IF NOT EXISTS hstore;
@@ -158,9 +160,9 @@ Spring AI °­ÁÂÁ¤¸®
 	CREATE INDEX ON vector_store USING HNSW (embedding vector_cosine_ops);
 
 
-     ¹Ù. application.properties ¼³Á¤
+     ë°”. application.properties ì„¤ì •
 
-       # https://docs.spring.io/spring-ai/reference/1.0/api/vectordbs/pgvector.html ÂüÁ¶
+       # https://docs.spring.io/spring-ai/reference/1.0/api/vectordbs/pgvector.html ì°¸ì¡°
 	spring.ai.vectorstore.pgvector.index-type=HNSW
 	spring.ai.vectorstore.pgvector.distance-type=COSINE_DISTANCE
 	spring.ai.vectorstore.pgvector.dimensions=1536
@@ -169,18 +171,18 @@ Spring AI °­ÁÂÁ¤¸®
 	spring.datasource.username=postgres
 	spring.datasource.password=postgres
 
-     »ç. Æ¯Á¤ È¸»ç(µµ¸ŞÀÎ)¿¡ ±¹ÇÑµÈ µ¥ÀÌÅÍ Á¦°ø ( ÆÄÀÏ )
+     ì‚¬. íŠ¹ì • íšŒì‚¬(ë„ë©”ì¸)ì— êµ­í•œëœ ë°ì´í„° ì œê³µ ( íŒŒì¼ )
         
 	job_list.txt
 
 
-     ¾Æ.  PGVectorLoader.java
+     ì•„.  PGVectorLoader.java
      
-        - job_list.txt ÀĞ¾î¼­ PGVector¿¡ ÀúÀå
-	- ¸ÖÆ¼ ÆÄÀÏ ·Îµåµµ °¡´É.
+        - job_list.txt ì½ì–´ì„œ PGVectorì— ì €ì¥
+	- ë©€í‹° íŒŒì¼ ë¡œë“œë„ ê°€ëŠ¥.
 
 
-     ÀÚ. PGVector¿¡¼­ µ¥ÀÌÅÍ¸¦ °Ë»öÇÏ±â À§ÇØ¼­ ¹İµå½Ã Advisort¸¦ ¼³Á¤ÇØ¾ß µÈ´Ù.
+     ì. PGVectorì—ì„œ ë°ì´í„°ë¥¼ ê²€ìƒ‰í•˜ê¸° ìœ„í•´ì„œ ë°˜ë“œì‹œ Advisortë¥¼ ì„¤ì •í•´ì•¼ ëœë‹¤.
 
        @Service
 	public class ChatServiceImpl implements ChatService {
@@ -191,8 +193,8 @@ Spring AI °­ÁÂÁ¤¸®
 		public ChatServiceImpl(ChatClient.Builder builder, VectorStore vectorStore) {
 			this.chatClient = builder
 					    .defaultAdvisors( new MessageChatMemoryAdvisor(new InMemoryChatMemory())
-				,new QuestionAnswerAdvisor(vectorStore) <== job_lists.txt¿¡¼­ °Ë»öÇÔ.
-								 ) // Àü¿ª VectorStore
+				,new QuestionAnswerAdvisor(vectorStore) <== job_lists.txtì—ì„œ ê²€ìƒ‰í•¨.
+								 ) // ì „ì—­ VectorStore
 					    .build();
 		
 			this.vectorStore = vectorStore;
