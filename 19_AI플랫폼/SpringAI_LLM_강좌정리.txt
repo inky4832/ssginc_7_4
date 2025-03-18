@@ -1,0 +1,199 @@
+
+Spring AI 강좌정리
+
+1. 생성형 AI ( Generitive AI )
+
+  1) 개념
+   - 텍스트, 이미지, 영상, 음악등 다양한 형태의 데이터를 생성할 수 있는 인공지능임.
+
+
+  2) 주요 기술
+
+   가. 대규모 언어 모델 ( Large Language Model: LLM )
+     - 예> OpenAI 의 ChatGPT ( 수업에서 사용, 최소한 $5 비용 )
+          Google 의 Gemini ( 제미나이 )
+	  META 의 Llama ( 로컬에서 실행하면 무료 )
+
+   나. 컴퓨터 비전 기술
+     - GAN ( 생성적 적대 신경망) 
+       예> 딥페이크
+
+   다. 멀티 모달( multi modal)
+     - 이미지 및 사운드 생성
+
+ 3) AI 아키텍쳐
+ 
+  * 파이선 러닝패스
+
+    파이썬--> numpy --> pandas --> matplotlib(시각화) --> ML --> DL
+     수학 개념
+
+    AI
+      ML ( 머신러닝 )
+         DL ( 딥러닝 )
+           생성형 AI
+	       LLM  <== 빌려서 사용되는 방법으로 서비스에 적용가능.
+
+
+2. LLM 적용 기술 역사
+
+ 1) 초창기 모델
+  
+    - one-hot 인코딩
+    - 단어에 숫자를 지정 ( 0과 1로만 표현 )
+
+    예> 고양이 - 1 0 0 0 
+       강아지 - 0 1 0 0 
+       새    - 0 0 1 0
+       멍멍이 - 0 0 0 1
+
+     가장 큰 단점은 단어간에 관련성을 설정하기가 매우 어려움.
+
+ 2) 개선 모델
+  
+   -  wordtovect 모델
+   -  배열(벡터)로 표현 <-- 임베딩(embedding) 이라고 부름.
+   예> 고양이 - [0.4  -0.3  0.7  0.1]  
+       강아지- [0.8  -0.9  0.1  0.9]  
+       멍멍이 - [0.85  -0.8  0.05  0.85] 
+
+     가장 큰 장점은 모든 차원에 값을 설정해서 단어간에 관련서(유사성)을 설정할 수 있음.
+  
+
+3. 토큰 ( token )
+
+  1)개념
+
+    제공된 문장을 분리하는 작업을 의미.
+
+   예> 안녕하세요
+
+     안,녕,하,세,요 (1단계)
+      |          <== 많이 사용하는 단어 묶음
+     안녕 하세요    <== 최종적으로 
+
+  2) ChatGPT는 BPE( byte pair encoding) 토큰나이저 이용.
+
+  https://platform.openai.com/tokenizer
+
+   토큰에 따라서 과금이 됨.
+
+
+4. 요청에 대한 응답을 효율적으로 받기 위한 방법 2가지
+
+  1) converter
+ 
+     BeanOutputConverter:  DTO 형식으로 응답
+     ListOutputConverter:  , (쉼표) 구분자로 응답
+     MapOutputConverter:   key,value 형식으로 응답
+ 
+
+  2) entity
+
+
+
+5. RAG ( Retrieval Augmented Generation: 검색 증강 생성 )
+
+  1) 개념
+   - LLM 모델은 제공된 데이터로 학습이 되어 응답을 해줌.
+     제공된 데이터가 오래된 데이터이기 때문에 최신 데이터에 대한 요청을
+     응답에 제한이 있음.
+
+  2) 용도
+    - 최신 데이터 제공
+    - 특정 회사(도메인)에 국한된 데이터 제공
+
+  3) 용어
+    - vector store ( 저장소 )
+      예> 파일, 또는 DB(Vector DB)
+
+    ///////////////////////////
+      * Vector DB
+        -임베딩 데이터(벡터)가 저장됨.
+	-유사도(유사성) 검색이 가능
+	- 종류: PGVector(PostgreSQL 의 확장기능 ), Chroma, Pinecone,....
+
+    //////////////////////////
+    
+     가. Docker Desktop 설치
+        https://www.docker.com/products/docker-desktop/
+
+	download for window AMD64
+
+     나. pgvector 접속하기 위한 도구
+        DBeaver
+	https://dbeaver.io/
+
+     다. PGVector 설치
+       - docker 이용
+       docker run -it --rm --name postgres -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres pgvector/pgvector:pg16
+
+     라. 의존성 설정
+
+             <!-- Vector Store : PGVector-->
+	    <dependency>
+	      <groupId>org.springframework.boot</groupId>
+	      <artifactId>spring-boot-starter-data-jpa</artifactId>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.springframework.ai</groupId>
+	      <artifactId>spring-ai-pgvector-store-spring-boot-starter</artifactId>
+	    </dependency>
+
+     마. PGVector에 테이블 작성
+
+       src/main/resousce/schema.sql 작성
+
+       CREATE EXTENSION IF NOT EXISTS vector;
+	CREATE EXTENSION IF NOT EXISTS hstore;
+	CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+	CREATE TABLE IF NOT EXISTS vector_store (
+		id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+		content text,
+		metadata json,
+		embedding vector(1536) 
+	);
+
+	CREATE INDEX ON vector_store USING HNSW (embedding vector_cosine_ops);
+
+
+     바. application.properties 설정
+
+       # https://docs.spring.io/spring-ai/reference/1.0/api/vectordbs/pgvector.html 참조
+	spring.ai.vectorstore.pgvector.index-type=HNSW
+	spring.ai.vectorstore.pgvector.distance-type=COSINE_DISTANCE
+	spring.ai.vectorstore.pgvector.dimensions=1536
+
+	spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+	spring.datasource.username=postgres
+	spring.datasource.password=postgres
+
+     사. 특정 회사(도메인)에 국한된 데이터 제공 ( 파일 )
+        
+	job_list.txt
+
+
+     아.  PGVectorLoader.java
+     
+        - job_list.txt 읽어서 PGVector에 저장
+	- 멀티 파일 로드도 가능.
+
+
+     자. PGVector에서 데이터를 검색하기 위해서 반드시 Advisort를 설정해야 된다.
+
+       @Service
+	public class ChatServiceImpl implements ChatService {
+
+	    ChatClient chatClient;  
+		VectorStore vectorStore;
+		
+		public ChatServiceImpl(ChatClient.Builder builder, VectorStore vectorStore) {
+			this.chatClient = builder
+					    .defaultAdvisors( new MessageChatMemoryAdvisor(new InMemoryChatMemory())
+				,new QuestionAnswerAdvisor(vectorStore) <== job_lists.txt에서 검색함.
+								 ) // 전역 VectorStore
+					    .build();
+		
+			this.vectorStore = vectorStore;
+	    }
