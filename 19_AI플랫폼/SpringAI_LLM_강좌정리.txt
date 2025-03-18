@@ -126,6 +126,9 @@ Spring AI 강좌정리
         DBeaver
 	https://dbeaver.io/
 
+        DBeaver 에서 Postgres 접속시 드라이버 다운로드 에러발생시 해결은 다음 사이트 참조하자.
+        https://happy-jjang-a.tistory.com/214
+
      다. PGVector 설치
        - docker 이용
        docker run -it --rm --name postgres -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres pgvector/pgvector:pg16
