@@ -1,3 +1,20 @@
+  public class User {
+	
+	private Integer id;
+	private String name;
+	private LocalDate birthDate;
+ 
+	@GetMapping("/users/map")
+	public ResponseEntity<Map<String, Object>> xxx() {
+		
+		Map<String, Object> map = new  HashMap<>();
+		map.put("a", "AAA");
+		map.put("list", Arrays.asList(new User(100, "홍",LocalDate.now()),new User(200, "홍",LocalDate.now())));
+		
+		return ResponseEntity.ok(map);
+	}
+
+
 https://www.coupang.com/vp/products/8377214922?itemId=24205459385&vendorItemId=91222939150&landingType=USED_DETAIL
 
 https://www.coupang.com/vp/products/8515061864?itemId=24650509411&vendorItemId=91661132255&q=%EA%B0%A4%EB%9F%AD%EC%8B%9C%EB%B6%81+%ED%94%84%EB%A1%9C+%EC%A4%91%EA%B3%A0&itemsCount=36&searchId=fc82abf26080779&rank=1&searchRank=1&isAddedCart=
