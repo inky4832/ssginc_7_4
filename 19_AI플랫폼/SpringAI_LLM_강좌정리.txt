@@ -203,7 +203,8 @@ Spring AI 강좌정리
 			this.vectorStore = vectorStore;
 	    }
 ////////////////////////////////////////////////////////////////////////////////////////////
-JPA + 멀티DB 연동 방법
+-JPA + 멀티DB 연동 방법
 https://jinsb1995.tistory.com/7
 
-
+-AI를 활용한 Text Embedding으로 검색 기능 개선하기
+https://velog.io/@swj9077/AI%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-Text-Embedding%EC%9C%BC%EB%A1%9C-%EA%B2%80%EC%83%89-%EA%B8%B0%EB%8A%A5-%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0
