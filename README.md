@@ -27,3 +27,7 @@ https://drive.google.com/drive/folders/1-SUnOjBBDsRqAHPPP_FwzzgOHOO604b9?usp=sha
 
 ## Reactjs 강좌 녹화본 
 https://drive.google.com/drive/folders/1IRA0dhDsbn3h28QW-fhOvVaCHtcKIJ79?usp=sharing
+
+
+## KDT 5차 및 6차 최종 프로젝트 동영상
+https://drive.google.com/drive/folders/1xCJrP-YYNgiA1zsDsLP8JZfFkOnjTALA?usp=sharing
